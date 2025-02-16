@@ -1,8 +1,4 @@
-cmake_minimum_required(VERSION 3.4)
-
-# As of July 31, 2020 pybind11 upgraded to CMake version 3.8 (effectively dropping 16.04).
-# To be able to configure, we need to set CMP0069 (interprocedural optimization) to NEW
-# cmake_policy(SET CMP0069 NEW)
+cmake_minimum_required(VERSION 3.12)
 
 find_package(pybind11 @PYBIND11_MINIMUM_REQUIRED_VERSION@ QUIET)
 
