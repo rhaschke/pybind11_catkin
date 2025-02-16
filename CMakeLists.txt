@@ -29,6 +29,8 @@ if(NOT pybind11_FOUND)
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${PROJECT_BINARY_DIR}/install/include/pybind11 ${CATKIN_DEVEL_PREFIX}/include/${PROJECT_NAME}/pybind11
     DEPENDEES install
   )
+else()
+  message(STATUS "Found pybind11 ${pybind11_VERSION}: ${pybind11_DIR}")
 endif()
 
 file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include/${PROJECT_NAME})
