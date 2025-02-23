@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
 
 set(PYBIND11_PYTHON_VERSION ${PYTHON_VERSION_STRING})
-find_package(pybind11 @PYBIND11_MINIMUM_REQUIRED_VERSION@)
+find_package(pybind11 @PYBIND11_MINIMUM_REQUIRED_VERSION@ REQUIRED)
 
 
 # Augment the pybind11_add_module function to set the output directory
