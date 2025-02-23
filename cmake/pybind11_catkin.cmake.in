@@ -4,6 +4,7 @@ set(PYBIND11_PYTHON_VERSION ${PYTHON_VERSION_STRING})
 find_package(pybind11 @PYBIND11_MINIMUM_REQUIRED_VERSION@ REQUIRED)
 
 list(APPEND @PROJECT_NAME@_LIBRARIES pybind11::pybind11)
+list(APPEND @PROJECT_NAME@_INCLUDE_DIRS ${pybind11_INCLUDE_DIRS})
 
 # Augment the pybind11_add_module function to set the output directory
 macro(pybind_add_module target_name)
