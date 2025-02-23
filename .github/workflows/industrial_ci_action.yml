@@ -12,6 +12,7 @@ jobs:
       ROS_DISTRO: ${{ matrix.distro }}
       DOWNSTREAM_WORKSPACE: github:arturmiller/pybind11_examples#master
       BEFORE_SETUP_DOWNSTREAM_WORKSPACE: ${{ matrix.builder != 'catkin_make_isolated_devel' && 'rm -rf $HOME/target_ws/devel' || '' }}
+      BEFORE_BUILD_TARGET_WORKSPACE: ici_apt_install git-core
 
     runs-on: ubuntu-latest
     steps:
