@@ -3,8 +3,8 @@ project(pybind11_catkin)
 
 find_package(catkin REQUIRED)
 
-# Ensure PYBIND11_INTERNALS_VERSION >= 6
-set(PYBIND11_MINIMUM_REQUIRED_VERSION 2.13.1)
+# Ensure PYBIND11_INTERNALS_VERSION >= 7
+set(PYBIND11_MINIMUM_REQUIRED_VERSION 3.0.0)
 set(PYBIND11_PYTHON_VERSION ${PYTHON_VERSION_STRING})
 
 find_package(pybind11 ${PYBIND11_MINIMUM_REQUIRED_VERSION} QUIET)
@@ -12,13 +12,14 @@ if(NOT pybind11_FOUND)
   include(ExternalProject)
 
   ExternalProject_Add(pybind11_src
-    URL "https://github.com/pybind/pybind11/archive/v2.13.6.zip"
+    GIT_REPOSITORY https://github.com/pybind/pybind11.git
+    GIT_TAG d8565ac7317b4838a08308170f5b9ba82d091546
     UPDATE_COMMAND ""
     CMAKE_ARGS -DPYBIND11_NOPYTHON=TRUE
               -DPYBIND11_TEST=OFF
               -DPYBIND11_INSTALL=ON
               -DCMAKE_INSTALL_PREFIX=${PROJECT_BINARY_DIR}/install
-              -DPYBIND11_INTERNALS_VERSION=6
+              -DPYBIND11_INTERNALS_VERSION=7
     # Workaround if DESTDIR is set
     # See https://gitlab.kitware.com/cmake/cmake/-/issues/18165.
     INSTALL_COMMAND ${CMAKE_MAKE_PROGRAM} DESTDIR= install
