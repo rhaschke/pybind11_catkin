@@ -10,7 +10,18 @@ catkin_package(
 set(PYBIND11_MINIMUM_REQUIRED_VERSION 2.5.0)
 set(PYBIND11_PYTHON_VERSION ${PYTHON_VERSION_STRING})
 
-find_package(pybind11 ${PYBIND11_MINIMUM_REQUIRED_VERSION} QUIET)
+# Avoid finding pybind11 in parent catkin workspaces
+# To this end, remove paths in CATKIN_WORKSPACES from CMAKE_PREFIX_PATH
+foreach (_path ${CATKIN_WORKSPACES})
+  list(FIND CMAKE_PREFIX_PATH ${_path} _index)
+  if (${_index} GREATER -1)
+    list(REMOVE_AT CMAKE_PREFIX_PATH ${_index})
+  endif()
+endforeach()
+
+find_package(pybind11 ${PYBIND11_MINIMUM_REQUIRED_VERSION} QUIET
+  NO_CMAKE_ENVIRONMENT_PATH NO_SYSTEM_ENVIRONMENT_PATH)
+
 if(NOT pybind11_FOUND)
   include(ExternalProject)
 
