@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="3">
   <name>pybind11_catkin</name>
-  <version>2.10.3</version>
+  <version>3.0.0</version>
   <description>A package vendoring recent versions of pybind11 and providing extra macros for easier integration.</description>
   <maintainer email="wolfgang@robots.ox.ac.uk">Wolfgang Merkt</maintainer>
   <author>Wolfgang Merkt</author>

@@ -2,6 +2,29 @@
 Changelog for package pybind11_catkin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+3.0.0 (2025-08-09)
+------------------
+* Drop pybind11-dev from depends
+* Bump to pybind11 version 3.0.0
+* Fix dependency on python-dev
+* Export pybind11_catkin_INCLUDE_DIRS
+* Forward pybind11::pybind11 to pybind11_catkin_LIBRARIES
+* Require pybind11 in pybind11_catkin.cmake
+* Don't use pybind11 from parent catkin workspaces
+  This contradicts the idea of overlaying those workspaces with the current pybind11_catkin package.
+* Fix cmake
+  - Ensure correct relative location of pybind11Config.cmake and includes
+  - Only perform install when NOT pybind11_FOUND
+* Simplify pybind11_catkin.cmake
+* Add message informing about existing pybind11 version
+* Fix issues including Python.h
+  New FindPython module uses Python_INCLUDE_DIRS instead of PYTHON_INCLUDE_DIRS
+* Increase cmake_minimum_required to 3.12
+  pybind11 relies on modern FindPython `introduced in cmake 3.12 <https://cmake.org/cmake/help/latest/module/FindPython.html>`_
+* Set PYBIND11_PYTHON_VERSION
+* Use system pybind11 when available `#23 <https://github.com/wxmerkt/pybind11_catkin/issues/23>`_
+* Contributors: Robert Haschke, Simon Schmeisser, Wolfgang Merkt
+
 2.10.3 (2023-02-09)
 -------------------
 * Ignore DESTDIR for the internal ExternalProject_Add() command (`#19 <https://github.com/ipab-slmc/pybind11_catkin/issues/19>`_)
